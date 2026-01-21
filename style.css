@@ -6,28 +6,28 @@ body {
     margin: 0;
     background-color: #ffe6e6; 
     font-family: 'Arial', sans-serif;
-    overflow: hidden;
+    overflow: hidden; /* This keeps the floating hearts inside the screen */
 }
 
 .container {
     text-align: center;
     position: relative;
-    z-index: 10;
+    z-index: 10; /* Keeps text and buttons in front of the floating hearts */
 }
 
-/* This creates a simple red heart using only CSS */
+/* FIXED HEART SHAPE */
 .heart-shape {
     position: relative;
     width: 100px;
-    height: 90px;
-    margin: 30px auto;
+    height: 100px;
+    margin: 50px auto;
     background-color: #ff4d4d;
     transform: rotate(-45deg);
     animation: beat 1s infinite;
 }
 
-.heart-shape:before,
-.heart-shape:after {
+.heart-shape::before,
+.heart-shape::after {
     content: "";
     position: absolute;
     width: 100px;
@@ -36,14 +36,36 @@ body {
     border-radius: 50%;
 }
 
-.heart-shape:before { top: -50px; left: 0; }
-.heart-shape:after { top: 0; left: 50px; }
+.heart-shape::before {
+    top: -50px;
+    left: 0;
+}
 
-/* The beating animation */
+.heart-shape::after {
+    top: 0;
+    left: 50px;
+}
+
 @keyframes beat {
     0% { transform: scale(1) rotate(-45deg); }
     50% { transform: scale(1.1) rotate(-45deg); }
     100% { transform: scale(1) rotate(-45deg); }
+}
+
+/* FLOATING HEARTS STYLE */
+.floating-heart {
+    position: absolute;
+    bottom: -10%;
+    color: #ffb3b3;
+    font-size: 20px;
+    user-select: none;
+    pointer-events: none;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
 }
 
 .buttons {
