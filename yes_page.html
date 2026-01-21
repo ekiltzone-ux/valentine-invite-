@@ -3,30 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knew you would say yes!</title>
+    <title>Yay! You said Yes!</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .yes-page {
             text-align: center;
             padding: 40px;
         }
-        h1 {
+        
+        .yes-page h1 {
             color: #ff4d4d;
             font-size: 3em;
             margin-bottom: 20px;
         }
-        p {
+        
+        .yes-page p {
             font-size: 24px;
             color: #333;
             margin-top: 20px;
+        }
+        
+        .heart-shape {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 20px auto;
+        }
+        
+        .heart-shape:before,
+        .heart-shape:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: red;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart-shape:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
         }
     </style>
 </head>
 <body>
     <div class="yes-page">
         <h1>Knew you would say yes! 😍</h1>
-        <!-- Remove this line if you don't want any heart -->
-        <!-- <div class="heart-shape"></div> -->
+        <div class="heart-shape"></div>
         <p>See you soon! ❤️</p>
     </div>
 </body>
