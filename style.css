@@ -4,17 +4,46 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #ffe6e6; /* Soft pink background */
+    background-color: #ffe6e6; 
     font-family: 'Arial', sans-serif;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
-#main-image {
-    max-width: 300px;
-    margin-bottom: 20px;
+/* This creates a simple red heart using only CSS */
+.heart-shape {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 30px auto;
+    background-color: #ff4d4d;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite;
+}
+
+.heart-shape:before,
+.heart-shape:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+}
+
+.heart-shape:before { top: -50px; left: 0; }
+.heart-shape:after { top: 0; left: 50px; }
+
+/* The beating animation */
+@keyframes beat {
+    0% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.1) rotate(-45deg); }
+    100% { transform: scale(1) rotate(-45deg); }
 }
 
 .buttons {
@@ -43,5 +72,5 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
+
