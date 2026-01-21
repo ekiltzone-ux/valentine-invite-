@@ -6,22 +6,20 @@ body {
     margin: 0;
     background-color: #ffe6e6; 
     font-family: 'Arial', sans-serif;
-    overflow: hidden; /* This keeps the floating hearts inside the screen */
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
-    position: relative;
-    z-index: 10; /* Keeps text and buttons in front of the floating hearts */
 }
 
-/* FIXED HEART SHAPE */
+/* PERFECTLY SYMMETRICAL HEART */
 .heart-shape {
     position: relative;
     width: 100px;
     height: 100px;
-    margin: 50px auto;
     background-color: #ff4d4d;
+    margin: 60px auto;
     transform: rotate(-45deg);
     animation: beat 1s infinite;
 }
@@ -36,36 +34,22 @@ body {
     border-radius: 50%;
 }
 
+/* Top circle */
 .heart-shape::before {
-    top: -50px;
+    top: -50%;
     left: 0;
 }
 
+/* Right circle */
 .heart-shape::after {
     top: 0;
-    left: 50px;
+    left: 50%;
 }
 
 @keyframes beat {
     0% { transform: scale(1) rotate(-45deg); }
     50% { transform: scale(1.1) rotate(-45deg); }
     100% { transform: scale(1) rotate(-45deg); }
-}
-
-/* FLOATING HEARTS STYLE */
-.floating-heart {
-    position: absolute;
-    bottom: -10%;
-    color: #ffb3b3;
-    font-size: 20px;
-    user-select: none;
-    pointer-events: none;
-    animation: floatUp 5s linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
 }
 
 .buttons {
@@ -95,4 +79,3 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
